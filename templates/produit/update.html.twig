@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<div  style="display: flex;align-items: center;margin-top: 20px; padding: 10px; ">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Modifier un oeuvre </h5>
+            <div class ="row mb-3">
+            <!-- General Form Elements -->
+            {{ form_start(form) }}
+
+                <label for="inputText" class="col-sm-4 col-form-label">Nom Oeuvre</label>
+                <div class="col-sm-10">
+                    {{ form_widget(form.nomprod,{'attr':{'class':'form-control'}}) }}
+                </div>
+
+
+                    <label for="inputText" class="col-sm-4 col-form-label">Prix Oeuvre</label>
+                    <div class="col-sm-10">
+                        {{ form_widget(form.prixprod,{'attr':{'class':'form-control'}}) }}
+                    </div>
+
+
+                        <label for="inputText" class="col-sm-4 col-form-label">Localisation Oeuvre</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(form.localisationprod,{'attr':{'class':'form-control'}}) }}
+                        </div>
+
+
+                            <label for="inputText" class="col-sm-4 col-form-label">Type Oeuvre</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(form.typeprod,{'attr':{'class':'form-control'}}) }}
+                            </div>
+
+                                <label for="inputText" class="col-sm-4 col-form-label">Statut Oeuvre</label>
+                                <div class="col-sm-10">
+                                    {{ form_widget(form.typestatue,{'attr':{'class':'form-control'}}) }}
+                                </div>
+
+
+                                    <label for="inputText" class="col-sm-4 col-form-label">Oeuvre</label>
+                                    <div class="col-sm-10">
+                                        {{ form_widget(form.imagem1,{'attr':{'class':'form-control'}}) }}
+                                    </div>
+
+                                    <br/>
+                                    <div class="col-sm-10" style="display: flex;align-items: center;justify-content: center">
+
+                                        {{ form_widget(form.ajouter,{'attr':{'class':'btn btn-primary'}}) }}
+                                    </div>
+
+                                    {{ form_end(form) }}
+                                </div>
+                            </div>
+                        </div>
+    </div>
+
+        {% endblock %}

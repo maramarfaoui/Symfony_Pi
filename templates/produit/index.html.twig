@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row" style="display: flex;align-items: center;margin-top: 20px;">
+
+        <div class="col-lg-6">
+
+            <div class="card">
+                <div class="card-body">
+                    <a href="{{ path('addprod') }}"><i class="ri-arrow-left-circle-fill" style="font-size: 50px;"></i></a>
+                    <h5 class="card-title">Liste des oeuvres</h5>
+
+                    <!-- Table with stripped rows -->
+                    <table class="table">
+                        <thead>
+                        <tr>     <th>IdOeuvre</th>
+                            <th>Artiste</th>
+                            <th>Prix</th>
+                            <th>Localisation</th>
+                            <th>Type</th>
+                            <th>Statut</th>
+                            <th>Modification</th>
+                            <th>Suppression</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for produits in b %}
+                            <tr>
+                                <td>{{ produits.Idprod }}</td>
+                                <td>{{ produits.Nomprod }}</td>
+                                <td>{{ produits.Prixprod }}</td>
+                                <td>{{ produits.Localisationprod }}</td>
+                                <td>{{ produits.Typeprod }}</td>
+                                <td>{{ produits.Typestatue }}</td>
+
+                                <td>
+                                    <a class="btn btn-success" href="{{ path('modifprod',{'id':produits.idprod}) }}">Modifier</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger" href="{{ path('supp_prod',{'id':produits.idprod}) }}">Supprimer</a>
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                    <!-- End small tables -->
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    {#  <h1>Produit index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idprod</th>
+                <th>Nomprod</th>
+                <th>Prixprod</th>
+                <th>Localisationprod</th>
+                <th>Typeprod</th>
+                <th>Typestatue</th>
+                <th>Imagem1</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.idprod }}</td>
+                <td>{{ produit.nomprod }}</td>
+                <td>{{ produit.prixprod }}</td>
+                <td>{{ produit.localisationprod }}</td>
+                <td>{{ produit.typeprod }}</td>
+                <td>{{ produit.typestatue }}</td>
+                <td>{{ produit.imagem1 }}</td>
+                <td>
+                    <a href="{{ path('app_produit_show', {'idprod': produit.idprod}) }}">show</a>
+                    <a href="{{ path('app_produit_edit', {'idprod': produit.idprod}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_produit_new') }}">Create new</a>#}
+{% endblock %}
