@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Role{% endblock %}
+
+{% block body %}
+    <h1>Create new Role</h1>
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+    {{ include('role/_form.html.twig') }}
+
+    <a href="{{ path('app_role_index') }}">back to list</a>
+{% endblock %}
