@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<title>Commande index</title>
+
+{% block body %}
+    <h1>Commande index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idcmd</th>
+                <th>Idpanier</th>
+                <th>Idprod</th>
+                <th>Nomprod</th>
+                <th>Quantite</th>
+                <th>Prixprod</th>
+                <th>Prixremise</th>
+                <th>Etatcmd</th>
+                <th>Datecmd</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.idcmd }}</td>
+                <td>{{ commande.idpanier }}</td>
+                <td>{{ commande.idprod }}</td>
+                <td>{{ commande.nomprod }}</td>
+                <td>{{ commande.quantite }}</td>
+                <td>{{ commande.prixprod }}</td>
+                <td>{{ commande.prixremise }}</td>
+                <td>{{ commande.etatcmd }}</td>
+                <td>{{ commande.datecmd }}</td>
+                <td>
+                    <a href="{{ path('app_commande_show', {'idcmd': commande.idcmd}) }}">show</a>
+                    <a href="{{ path('app_commande_edit', {'idcmd': commande.idcmd}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_commande_new') }}">Create new</a>
+{% endblock %}

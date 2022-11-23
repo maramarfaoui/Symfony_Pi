@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<title>Panier</title>
+
+{% block body %}
+    <h1>Panier</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idpanier</th>
+                <td>{{ panier.idpanier }}</td>
+            </tr>
+            <tr>
+                <th>Idprod</th>
+                <td>{{ panier.idprod }}</td>
+            </tr>
+            <tr>
+                <th>Nomprod</th>
+                <td>{{ panier.nomprod }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ panier.quantite }}</td>
+            </tr>
+            <tr>
+                <th>Prixprod</th>
+                <td>{{ panier.prixprod }}</td>
+            </tr>
+            <tr>
+                <th>Prixremise</th>
+                <td>{{ panier.prixremise }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_panier_index') }}">back to list</a>
+
+    <a href="{{ path('app_panier_edit', {'idpanier': panier.idpanier}) }}">edit</a>
+
+    {{ include('panier/_delete_form.html.twig') }}
+{% endblock %}

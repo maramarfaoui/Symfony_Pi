@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<title>Commande</title>
+
+{% block body %}
+    <h1>Commande</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idcmd</th>
+                <td>{{ commande.idcmd }}</td>
+            </tr>
+            <tr>
+                <th>Idpanier</th>
+                <td>{{ commande.idpanier }}</td>
+            </tr>
+            <tr>
+                <th>Idprod</th>
+                <td>{{ commande.idprod }}</td>
+            </tr>
+            <tr>
+                <th>Nomprod</th>
+                <td>{{ commande.nomprod }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ commande.quantite }}</td>
+            </tr>
+            <tr>
+                <th>Prixprod</th>
+                <td>{{ commande.prixprod }}</td>
+            </tr>
+            <tr>
+                <th>Prixremise</th>
+                <td>{{ commande.prixremise }}</td>
+            </tr>
+            <tr>
+                <th>Etatcmd</th>
+                <td>{{ commande.etatcmd }}</td>
+            </tr>
+            <tr>
+                <th>Datecmd</th>
+                <td>{{ commande.datecmd }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_commande_index') }}">back to list</a>
+
+    <a href="{{ path('app_commande_edit', {'idcmd': commande.idcmd}) }}">edit</a>
+
+    {{ include('commande/_delete_form.html.twig') }}
+{% endblock %}

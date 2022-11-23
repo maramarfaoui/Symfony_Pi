@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<title>Facture index</title>
+
+{% block body %}
+    <h1>Facture index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idfacture</th>
+                <th>Idcmd</th>
+                <th>Iduser</th>
+                <th>Montant</th>
+                <th>Datecmd</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for facture in factures %}
+            <tr>
+                <td>{{ facture.idfacture }}</td>
+                <td>{{ facture.idcmd }}</td>
+                <td>{{ facture.iduser }}</td>
+                <td>{{ facture.montant }}</td>
+                <td>{{ facture.datecmd }}</td>
+                <td>
+                    <a href="{{ path('app_facture_show', {'idfacture': facture.idfacture}) }}">show</a>
+                    <a href="{{ path('app_facture_edit', {'idfacture': facture.idfacture}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_facture_new') }}">Create new</a>
+{% endblock %}

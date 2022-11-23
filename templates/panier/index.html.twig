@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<title>Panier index</title>
+
+{% block body %}
+    <h1>Panier index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idpanier</th>
+                <th>Idprod</th>
+                <th>Nomprod</th>
+                <th>Quantite</th>
+                <th>Prixprod</th>
+                <th>Prixremise</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for panier in paniers %}
+            <tr>
+                <td>{{ panier.idpanier }}</td>
+                <td>{{ panier.idprod }}</td>
+                <td>{{ panier.nomprod }}</td>
+                <td>{{ panier.quantite }}</td>
+                <td>{{ panier.prixprod }}</td>
+                <td>{{ panier.prixremise }}</td>
+                <td>
+                    <a href="{{ path('app_panier_show', {'idpanier': panier.idpanier}) }}">show</a>
+                    <a href="{{ path('app_panier_edit', {'idpanier': panier.idpanier}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_panier_new') }}">Create new</a>
+{% endblock %}

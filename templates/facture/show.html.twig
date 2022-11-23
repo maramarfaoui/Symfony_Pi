@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<title>Facture</title>
+
+{% block body %}
+    <h1>Facture</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idfacture</th>
+                <td>{{ facture.idfacture }}</td>
+            </tr>
+            <tr>
+                <th>Idcmd</th>
+                <td>{{ facture.idcmd }}</td>
+            </tr>
+            <tr>
+                <th>Iduser</th>
+                <td>{{ facture.iduser }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ facture.montant }}</td>
+            </tr>
+            <tr>
+                <th>Datecmd</th>
+                <td>{{ facture.datecmd }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_facture_index') }}">back to list</a>
+
+    <a href="{{ path('app_facture_edit', {'idfacture': facture.idfacture}) }}">edit</a>
+
+    {{ include('facture/_delete_form.html.twig') }}
+{% endblock %}
