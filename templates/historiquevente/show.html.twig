@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Historiquevente{% endblock %}
+
+{% block body %}
+    <h1>Historiquevente</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idvent</th>
+                <td>{{ historiquevente.idvent }}</td>
+            </tr>
+            <tr>
+                <th>Datevent</th>
+                <td>{{ historiquevente.datevent }}</td>
+            </tr>
+            <tr>
+                <th>Qtevendue</th>
+                <td>{{ historiquevente.qtevendue }}</td>
+            </tr>
+            <tr>
+                <th>Prixvente</th>
+                <td>{{ historiquevente.prixvente }}</td>
+            </tr>
+            <tr>
+                <th>Idprod</th>
+                <td>{{ historiquevente.idprod }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_historiquevente_index') }}">back to list</a>
+
+    <a href="{{ path('app_historiquevente_edit', {'idvent': historiquevente.idvent}) }}">edit</a>
+
+    {{ include('historiquevente/_delete_form.html.twig') }}
+{% endblock %}

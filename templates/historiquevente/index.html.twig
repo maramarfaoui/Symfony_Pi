@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="row" style="display: flex;align-items: center;margin-top: 20px; padding: 10px;">
+
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <a href="{{ path('app_historiquevente_new') }}"><i class="ri-arrow-left-circle-fill" style="font-size: 50px;"></i></a>
+                    <h5 class="card-title">Liste des Oeuvres vendus</h5>
+
+                    <!-- Table with stripped rows -->
+                    <table class="table">
+                        <thead>
+                        <tr>        <th>IDVente</th>
+                            <th>Datevent</th>
+                            <th>Quantite</th>
+                            <th>PrixVente</th>
+                            <th>IDOeuvre</th>
+                            <th>Modification</th>
+                            <th>Suppression</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for historiquevente in historiqueventes %}
+                            <tr>
+                                <td>{{ historiquevente.idvent }}</td>
+                                <td>{{ historiquevente.datevent }}</td>
+                                <td>{{ historiquevente.qtevendue }}</td>
+                                <td>{{ historiquevente.prixvente }}</td>
+                                <td>{{ historiquevente.idprod }}</td>
+                                <td>
+                                    <a class="btn btn-success" href="{{ path('app_historiquevente_edit',{'idvent': historiquevente.idvent}) }}">Modifier</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger" href="{{ path('app_historiquevente_delete',{'idvent': historiquevente.idvent}) }}">Supprimer</a>
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                    <!-- End small tables -->
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+{% endblock %}
