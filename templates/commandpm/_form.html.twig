@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-sm-3">
+
+    </div>
+    <div class="col-sm-6">
+        {% if message is defined %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endif %}
+        <h2>remplir pour commander</h2>
+        <form action="/commandpm/add" method="post">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">ID Du Prodiut</label>
+                <input type="text" name="IDProd" class="form-control" id="IDProd" placeholder="ID Du Prodiut ">
+            </div>
+            <div class="form-group" >
+                <label for="Nomprod">Nomprod</label>
+                <input type="text" list="Nomproda" name="Nomprod" class="form-control" id="Nomprod" placeholder="nom du produit " >
+
+                <datalist id="Nomproda">
+{% for p in pdts %}
+    <option   value="{{ p.nomprod }}"  ></option>
+
+{% endfor %}
+                </datalist>
+
+
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">reference commande</label>
+                <input type="text" name="referenceCM" class="form-control" id="referenceCM" placeholder="Reference">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">date</label>
+                <input type="text" name="date" class="datepicker form-control" placeholder="date">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">quantite de commande</label>
+                <input type="number" name="quantiteCpm" class="form-control" id="quantiteCpm" placeholder="quantite">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">id user</label>
+                <input type="text" name="iduser" class="form-control" id="iduser" placeholder="id user">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">type de commande </label>
+                <input type="text" name="type"  id="type" class="form-control" placeholder="type">
+            </div>
+            <button type="submit" class="btn btn-info"> Save</button>
+
+        </form>
+        <a href="{{ path('app_produitpm_index') }}">afficher la liste des produits</a>
+    </div>
+    <div class="col-sm-3">  </div>
+</div>

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produitpm{% endblock %}
+
+{% block body %}
+    <h1>Produitpm</h1>
+
+    <table class="table" methode="POST">
+        <tbody>
+            <tr>
+                <th>Id Du Produit</th>
+                <td>{{ produitpm.idprod }}</td>
+            </tr>
+            <tr>
+                <th>Nom  Du produit</th>
+                <td>{{ produitpm.nomprod }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ produitpm.referencep }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ produitpm.quantitep }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ produitpm.type }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ produitpm.prixpm }}</td>
+            </tr>
+            <tr>
+                <th>Date d'Ajout</th>
+                <td>{{ produitpm.dateajoutpm }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_produitpm_index') }}">back to list</a>
+
+    <a href="{{ path('app_produitpm_edit', {'idprod': produitpm.idprod}) }}">edit</a>
+
+    {{ include('produitpm/_delete_form.html.twig') }}
+{% endblock %}
