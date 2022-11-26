@@ -1,0 +1,13 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Edit Eventcalendar{% endblock %}
+
+{% block body %}
+    <h1>Edit Eventcalendar</h1>
+
+    {{ include('event_calendar/_form.html.twig', {'button_label': 'Mettre à Jour'}) }}<br>
+
+    <a href="{{ path('app_event_calendar_index') }}"> <button class="btn btn-info">Reour en Arrière</button></a>
+
+    {{ include('event_calendar/_delete_form.html.twig') }}
+{% endblock %}

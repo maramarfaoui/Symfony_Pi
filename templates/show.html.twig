@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Basic -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>BAZ'ARt</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="{{ asset('client/images/img.png') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ asset('client/images/img.png')}}">
+    {% block stylesheets %}
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ asset('client/css/bootstrap.min.css')}}">
+        <!-- Site CSS -->
+        <link rel="stylesheet" href="{{ asset('client/css/style.css')}}">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="{{ asset('client/css/responsive.css')}}">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{{ asset('client/css/custom.css')}}">
+
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    {% endblock %}
+</head>
+
+{% block body %}
+    <body>
+    <!-- Start Main Top -->
+    <div class="main-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="custom-select-box">
+                        <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
+                            <option>¥ JPY</option>
+                            <option>$ USD</option>
+                            <option>€ EUR</option>
+                        </select>
+                    </div>
+                    <div class="right-phone-box">
+                        <p>Nous Appeler :- <a href="#"> +216-71000000</a></p>
+                    </div>
+                    <div class="our-link">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-user s_color"></i> Mon Compte</a></li>
+                            <li><a href="#"><i class="fas fa-headset"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="login-box">
+                        <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
+                            <option>Inscrivez-vous ici</option>
+                            <option>S'identifier</option>
+                        </select>
+                    </div>
+                    <div class="text-slid-box">
+                        <div id="offer-box" class="carouselTicker">
+                            <ul class="offer-box">
+                                <li>
+                                    <i class="fab fa-opencart"></i> 20% Sur Tout Le Code Promotionnel D'achat: offT80
+                                </li>
+                                <li>
+                                    <i class="fab fa-opencart"></i> 50% - 80% Promo Sur les Oeuvres
+                                </li>
+                                <li>
+                                    <i class="fab fa-opencart"></i> Promo 10%! Evenements
+                                </li>
+                                <li>
+                                    <i class="fab fa-opencart"></i> Promo De 50%! Sur Nos Salles
+                                </li>
+                                <li>
+                                    <i class="fab fa-opencart"></i> Promo 10%! Evenements
+                                </li>
+                                <li>
+                                    <i class="fab fa-opencart"></i> 50% - 80% Promo Sur les Oeuvres
+                                </li>
+                                <li>
+                                    <i class="fab fa-opencart"></i> 20% Sur Tout Le Code Promotionnel D'achat: offT80
+                                </li>
+                                <li>
+                                    <i class="fab fa-opencart"></i> Promo De 50%! Sur Nos Salles
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Main Top -->
+
+    <!-- Start Main Top -->
+    <header class="main-header">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+            <div class="container">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="event_front/front.html.twig"><img src="{{ asset('client/images/logo1.jpg')}}" class="logo" alt=""></a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="nav-item active"><a class="nav-link" href="event_front/front.html.twig">Acceuil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">À propos de nous</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">BOUTIQUE</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/ev/front/evenement">Evenements</a></li>
+                                <li><a href="shop.html.twig">Oeuvres</a></li>
+                                <li><a href="shop.html.twig">Salles</a></li>
+                                <li><a href="shop-detail.html">Détail de la boutique</a></li>
+                                <li><a href="cart.html">Panier</a></li>
+                                <li><a href="checkout.html">Vérifier</a></li>
+                                <li><a href="my-account.html">Mon Compte</a></li>
+                                <li><a href="wishlist.html">Liste de souhaits</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallerie</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+
+                <!-- Start Atribute Navigation -->
+                <div class="attr-nav">
+                    <ul>
+                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                        <li class="side-menu">
+                            <a href="#">
+                                <i class="fa fa-shopping-bag"></i>
+                                <span class="badge">3</span>
+                                <p>Panier</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Atribute Navigation -->
+            </div>
+            <!-- Start Side Menu -->
+            <div class="side">
+                <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+                <li class="cart-box">
+                    <ul class="cart-list">
+                        <li>
+                            <a href="#" class="photo"><img src="{{ asset('client/images/tab2.jpg')}}" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Tableau Pop Art Femme </a></h6>
+                            <p>1x - <span class="price">1800.00 DT</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="{{ asset('client/images/tab1.jpg')}}" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">TABLEAU STREET ART BANKSY</a></h6>
+                            <p>1x - <span class="price">$60.00</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="{{ asset('client/images/tab3.jpg')}}" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Tranche de Vie</a></h6>
+                            <p>1x - <span class="price">$40.00</span></p>
+                        </li>
+                        <li class="total">
+                            <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                            <span class="float-right"><strong>Total</strong>: $180.00</span>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+            <!-- End Side Menu -->
+        </nav>
+        <!-- End Navigation -->
+    </header>
+
+    <!-- End Main Top -->
+
+    <!-- Start Top Search -->
+    <div class="top-search">
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Search -->
+
+    <!-- Start Slider -->
+    <div id="slides-shop" class="cover-slides">
+        <ul class="slides-container">
+            <li class="text-center">
+                <img src="{{ asset('client/images/img_1.jpg')}}" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Bienvenue dans<br> BAZ'ART</strong></h1>
+                            <p class="m-b-40">Voyez comment vos utilisateurs perçoivent votre site Web en temps réel ou visualisez <br> tendances pour voir tout changement de performance au fil du temps.</p>
+                            <p><a class="btn hvr-hover" href="#">Nouveaute au boutique</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="text-center">
+                <img src="{{ asset('client/images/img_2.jpg')}}" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Bienvenue dans <br> BAZ'ART</strong></h1>
+                            <p class="m-b-40">Voyez comment vos utilisateurs perçoivent votre site Web en temps réel ou visualisez <br> tendances pour voir tout changement de performance au fil du temps.</p>
+                            <p><a class="btn hvr-hover" href="#">Nouveaute au boutique</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="text-center">
+                <img src="{{ asset('client/images/img_3.jpg')}}" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Bienvenue dans <br> BAZ'ART</strong></h1>
+                            <p class="m-b-40">Voyez comment vos utilisateurs perçoivent votre site Web en temps réel ou visualisez <br> tendances pour voir tout changement de performance au fil du temps.</p>
+                            <p><a class="btn hvr-hover" href="#">Nouveaute au boutique</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="slides-navigation">
+            <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <!-- End Slider -->
+
+    <!-- Start Categories  -->
+    <div class="categories-shop">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="shop-cat-box">
+                        <img class="img-fluid" src="{{ asset('client/images/tab4.jpg')}}" alt="" />
+                        <a class="btn hvr-hover" href="#">TABLEAU LUMINEUX ANIMÉ</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="shop-cat-box">
+                        <img class="img-fluid" src="{{ asset('client/images/tab5.jpg')}}" alt="" />
+                        <a class="btn hvr-hover" href="#">TABLEAU URBAIN</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="shop-cat-box">
+                        <img class="img-fluid" src="{{ asset('client/images/tab6.jpg')}}" alt="" />
+                        <a class="btn hvr-hover" href="#">femme pop-art</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Categories -->
+
+    <div class="box-add-products">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="offer-box-products">
+                        <img class="img-fluid" src="{{ asset('client/images/tab7.jpg')}}" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="offer-box-products">
+                        <img class="img-fluid" src="{{ asset('client/images/tab8.jpg')}}" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Products  -->
+    <div class="products-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-all text-center">
+                        <h1>Salles</h1>
+                        <p>Voici nos salles pour vouz .</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="special-menu text-center">
+                        <div class="button-group filter-button-group">
+                            <button class="active" data-filter="*">Tout</button>
+                            <button data-filter=".top-featured">Top </button>
+                            <button data-filter=".best-seller">Les plus aimeées</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row special-list">
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Sale</p>
+                            </div>
+                            <img src="{{ asset('client/images/tab1.jpg')}}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="#">Ajouter au panier</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>TABLEAU STREET ART BANKSY</h4>
+                            <h5> 1880.000DT</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid top-featured">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="new">New</p>
+                            </div>
+                            <img src="{{ asset('client/images/tab2.jpg')}}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="#">Ajouter au panier</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Tableau Pop Art Femme</h4>
+                            <h5> $9.79</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid top-featured">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Sale</p>
+                            </div>
+                            <img src="{{ asset('client/images/img-pro-03.jpg')}}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="#">Ajouter au panier</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Lorem ipsum dolor sit amet</h4>
+                            <h5> $10.79</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Sale</p>
+                            </div>
+                            <img src="{{ asset('client/images/img-pro-04.jpg')}}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="#">Ajouter au panier</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Lorem ipsum dolor sit amet</h4>
+                            <h5> $15.79</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Products  -->
+
+    <!-- Start Event  -->
+
+
+    <div class="products-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-all text-center">
+                        <h1>Evènements</h1>
+                        <h3>Liste des évènements programmés .</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="special-menu text-center">
+                        <div class="button-group filter-button-group">
+                            <button class="active" data-filter="*">Tout</button>
+                            <button data-filter=".top-featured">Top </button>
+                            <button data-filter=".best-seller">Les plus aimeées</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <div class="title-all text-center">
+        <h1 >Liste Des Evenements</h1>
+        </div>
+        <div class="categories-shop">
+            <div class="container">
+                <div class="row">
+                    {% for evenement in evenements %}
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="shop-cat-box">
+                                <img class="img-fluid" src={{ asset('uploads/personnes/' ~ evenement.image1) }}>
+                                <a class="btn hvr-hover" href="{{ path('app_event_show', {'id': evenement.id}) }}">{{ evenement.NomEvent }}</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+
+    <!-- End Blog  -->
+
+
+
+
+    <!-- Start Footer  -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-widget">
+                            <h4>A Propos De BAZ'ART</h4>
+                            <p>BAZ'ART est une plateforme qui vous aide à bien organiser, gérer vos évènemts ainsi que de participer a des évènements</p>
+                            <p>Vous pouvez ici participer a des évènements, réserver des salles pour organiser vos évènements ainsi que vous pouvez acheter des ouevres d'Art qui sont a votre disposition </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-link">
+                            <h4>Informations</h4>
+                            <div class="footer-widget">
+                                <p>Toute une équipe d'artistes qui a pour but votre satisfaction</p>
+                                <p>Toute une équipe d'employés qui a assure le bien déroulement de vos évènements</p>
+                                <p>Nous sommes 24h/24 et 7j/7 a votre disposition</p>
+                                <p>Vous pouvez toujours profiter de nos réductions sur articles</p>
+                                <p>Vous pouvez a tout moment réserver des salles à distance par juste un appel téléphonique</p>
+                                <p>Soyez surs que vous serez totalement satisfaits par nos services</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-link-contact">
+                            <h4>Nous Contacter</h4>
+                            <ul>
+                                <li>
+                                    <p><i class="fas fa-map-marker-alt"></i>Address: Cité El Ghazela <br>Grouvernorat D'Ariana,<br> Tunisie</p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-phone-square"></i>Numéro Téléphone: <a href="tel:+1-888705770">+216-71000000</a></p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:contactinfo@gmail.com">BAZ'ART_BOUTIQUE@BAZART.TN</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer  -->
+
+    <!-- Start copyright  -->
+    <div class="footer-copyright">
+        <p class="footer-company">Soyez la bienvenue chez nous nous sommes ici juste pour vous
+            </p>
+    </div>
+    <!-- End copyright  -->
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+    {% block javascripts %}
+        <!-- ALL JS FILES -->
+        <script src="{{ asset('client/js/jquery-3.2.1.min.js')}}"></script>
+        <script src="{{ asset('client/js/popper.min.js')}}"></script>
+        <script src="{{ asset('client/js/bootstrap.min.js')}}"></script>
+        <!-- ALL PLUGINS -->
+        <script src="{{ asset('client/js/jquery.superslides.min.js')}}"></script>
+        <script src="{{ asset('client/js/bootstrap-select.js')}}"></script>
+        <script src="{{ asset('client/js/inewsticker.js')}}"></script>
+        <script src="{{ asset('client/js/bootsnav.js.')}}"></script>
+        <script src="{{ asset('client/js/images-loded.min.js')}}"></script>
+        <script src="{{ asset('client/js/isotope.min.js')}}"></script>
+        <script src="{{ asset('client/js/owl.carousel.min.js')}}"></script>
+        <script src="{{ asset('client/js/baguetteBox.min.js')}}"></script>
+        <script src="{{ asset('client/js/form-validator.min.js')}}"></script>
+        <script src="{{ asset('client/js/contact-form-script.js')}}"></script>
+        <script src="{{ asset('client/js/custom.js')}}"></script>
+    {% endblock %}
+
+    </body>
+{% endblock %}
+
+</html>

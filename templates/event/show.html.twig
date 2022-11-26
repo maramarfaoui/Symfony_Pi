@@ -1,0 +1,62 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Evenement{% endblock %}
+
+{% block body %}
+    <h1>Evenement</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ evenement.id }}</td>
+            </tr>
+            <tr>
+                <th>NomEvent</th>
+                <td>{{ evenement.NomEvent }}</td>
+            </tr>
+            <tr>
+                <th>AdresseEvent</th>
+                <td>{{ evenement.AdresseEvent }}</td>
+            </tr>
+            <tr>
+                <th>CapaciteEvent</th>
+                <td>{{ evenement.CapaciteEvent }}</td>
+            </tr>
+            <tr>
+                <th>NbrTicketAchete</th>
+                <td>{{ evenement.nbrTicketAchete }}</td>
+            </tr>
+            <tr>
+                <th>DateDebutEvent</th>
+                <td>{{ evenement.DateDebutEvent ? evenement.DateDebutEvent|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateFinEvent</th>
+                <td>{{ evenement.DateFinEvent ? evenement.DateFinEvent|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>TypeEvent</th>
+                <td>{{ evenement.TypeEvent }}</td>
+            </tr>
+            <tr>
+                <th>CategorieEvent</th>
+                <td>{{ evenement.CategorieEvent }}</td>
+            </tr>
+            <tr>
+                <th>PrixEntre</th>
+                <td>{{ evenement.PrixEntre }}</td>
+            </tr>
+            <tr>
+                <th>Image Evènement</th>
+                <td><img class="img-fluid"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_event_index') }}"><button class="btn btn-info">En Arrière</button></a><br>
+
+   <br> <a href="{{ path('app_event_edit', {'id': evenement.id}) }}"><button class="btn btn-info">Modifier</button></a><br>
+
+    <br>{{ include('event/_delete_form.html.twig') }}
+{% endblock %}

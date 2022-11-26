@@ -1,0 +1,51 @@
+{{ form_start(form) }}
+{% if message is defined %}
+<div class="alert alert-success" role="alert">
+    {{ message }}
+    {% endif %}
+</div>
+<table class="table table-bordered">
+    <tr>
+        <td>{{ form_label(form.title,"Nom Evènement ") }}</td>
+        <td>{{ form_widget(form.title) }}</td>
+        <td>{{ form_errors(form.title) }}</td>
+    </tr>
+    <tr>
+        <td> {{ form_label(form.start,"Date De Début") }}</td>
+        <td>{{ form_widget(form.start) }}</td>
+        <td>{{ form_errors(form.start) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.end,"Date De Fin") }}</td>
+        <td>{{ form_widget(form.end) }}</td>
+        <td>{{ form_errors(form.end) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.description,"Description") }}</td>
+        <td>{{ form_widget(form.description) }}</td>
+        <td>{{ form_errors(form.description) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.backgroundColor,"Background Couleur") }}</td>
+        <td>{{ form_widget(form.backgroundColor) }}</td>
+        <td>{{ form_errors(form.backgroundColor) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.borderColor,"Border Couleur") }}</td>
+        <td>{{ form_widget(form.borderColor) }}</td>
+        <td>{{ form_errors(form.borderColor) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.textColor,"Couleur De Texte") }}</td>
+        <td>{{ form_widget(form.textColor) }}</td>
+        <td>{{ form_errors(form.textColor) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.journee_entiere,"Journée Entière ?") }}</td>
+        <td>{{ form_widget(form.journee_entiere) }}</td>
+        <td>{{ form_errors(form.journee_entiere) }}</td>
+    </tr>
+</table>
+
+<br><button class="btn btn-info">{{ button_label|default('Enregistrer Evènement') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,18 @@
+
+<script>
+    window.onload = () =>{
+        let calendarElt = document.querySelector("#calendrier")
+
+        let calendar = new FullCalendar.Calendar(calendarElt,
+            {
+                initialView: 'timeGridWeek',
+                locale: 'Fr',
+                timeZone: 'Afrique/Tunis',
+                headerToolbar: {
+                    start: 'prev,next today',
+                    center: 'title',
+                    end: 'dayGridMonth,timeGridWeek'
+                },
+                events: 
+
+###

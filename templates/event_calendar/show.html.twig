@@ -1,0 +1,54 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Calendrier Des Evènements{% endblock %}
+
+{% block body %}
+    <h1>EventCalendar</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ event_calendar.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ event_calendar.title }}</td>
+            </tr>
+            <tr>
+                <th>Start</th>
+                <td>{{ event_calendar.start ? event_calendar.start|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>End</th>
+                <td>{{ event_calendar.end ? event_calendar.end|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ event_calendar.description }}</td>
+            </tr>
+            <tr>
+                <th>Background_Color</th>
+                <td>{{ event_calendar.backgroundColor }}</td>
+            </tr>
+            <tr>
+                <th>Border_Color</th>
+                <td>{{ event_calendar.borderColor }}</td>
+            </tr>
+            <tr>
+                <th>Text_Color</th>
+                <td>{{ event_calendar.TextColor }}</td>
+            </tr>
+            <tr>
+                <th>All_day</th>
+                <td>{{ event_calendar.JourneeEntiere ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_event_calendar_index') }}"><button class="btn btn-info">En Arrière</button></a><br>
+
+   <br> <a href="{{ path('app_event_calendar_edit', {'id': event_calendar.id}) }}"><button class="btn btn-info">Modifier</button></a>
+
+    {{ include('event_calendar/_delete_form.html.twig') }}
+{% endblock %}

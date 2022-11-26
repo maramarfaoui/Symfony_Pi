@@ -1,0 +1,58 @@
+{{ form_start(form , {'attr': {'novalidate':'novalidate'}}) }}
+
+
+
+<table class="table table-bordered">
+    <tr>
+        <td>{{ form_label(form.NomEvent,"Nom de l'évènement") }}</td>
+        <td>{{ form_widget(form.NomEvent) }}</td>
+        <td>{{ form_errors(form.NomEvent) }}</td>
+    </tr>
+    <tr>
+        <td> {{ form_label(form.AdresseEvent,"Adresse de l'évènement") }}</td>
+        <td>{{ form_widget(form.AdresseEvent) }}</td>
+        <td>{{ form_errors(form.AdresseEvent) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.CapaciteEvent,"Capacité de l'évènement") }}</td>
+        <td>{{ form_widget(form.CapaciteEvent) }}</td>
+        <td>{{ form_errors(form.CapaciteEvent) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.nbrTicketAchete,"Nombre de Tickets achetés") }}</td>
+        <td>{{ form_widget(form.nbrTicketAchete) }}</td>
+        <td>{{ form_errors(form.nbrTicketAchete) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.Date_Debut_Event,"Date de début de l'évènement") }}</td>
+        <td class="date">{{ form_widget(form.Date_Debut_Event) }}</td>
+        <td>{{ form_errors(form.Date_Debut_Event) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.Date_Fin_Event,"Date de fin de l'évènement") }}</td>
+        <td>{{ form_widget(form.Date_Fin_Event) }}</td>
+        <td>{{ form_errors(form.Date_Fin_Event) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.Type_Event,"Type de l'évènement") }}</td>
+        <td>{{ form_widget(form.Type_Event) }}</td>
+        <td>{{ form_errors(form.Type_Event) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.CategorieEvent,"Catégorie de l'évènement") }}</td>
+        <td>{{ form_widget(form.CategorieEvent) }}</td>
+        <td>{{ form_errors(form.CategorieEvent) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.PrixEntre,"Prix d'entréé") }}</td>
+        <td>{{ form_widget(form.PrixEntre) }}</td>
+        <td>{{ form_errors(form.PrixEntre) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_row(form.image1) }}</td>
+
+
+    </tr>
+</table>
+<button class="btn btn-info">{{ button_label|default('Ajouter Evènement') }}<br></button>
+{{ form_end(form) }}

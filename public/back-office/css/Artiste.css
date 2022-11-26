@@ -1,0 +1,148 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 26 oct. 2022, 21:18:55
+    Author     : User
+*/
+.top-form{
+    -fx-background-color:#fff;
+    -fx-border-color:#000;
+    -fx-border-width:.2px .2px .5px .2px;
+}
+
+.semiTop-form{
+    -fx-border-color:#000;
+    -fx-border-width:0px 0px .5px 0px;
+}
+
+.close-btn{
+    -fx-background-color:transparent;
+    -fx-cursor:hand;
+}
+.close-btn:hover{
+    -fx-background-color:#f13f57;
+}
+.minimize-btn{
+    -fx-background-color:transparent;
+     -fx-cursor:hand;
+}
+.minimize-btn:hover{
+        -fx-background-color:#dddddd;
+
+}
+.bars{
+        -fx-background-color:transparent;
+        -fx-background-radius:5px;
+         -fx-cursor:hand;
+}
+.bars:hover{
+            -fx-background-color:#d6d6d6;
+        -fx-background-radius:5px;
+
+}
+.nav-form{
+    -fx-background-color:linear-gradient(to bottom right , #252d50,  #324f6b);
+}
+.edit-btn{
+     -fx-background-color:transparent;
+         -fx-cursor:hand;
+   -fx-padding:60px 0px 0px 0px;
+}
+
+.nav-btn{
+    -fx-background-color:linear-gradient(to bottom right , #344275,  #3a6389);
+        -fx-background-radius:10px;
+         -fx-cursor:hand;
+         -fx-font-size:15px;
+         -fx-text-fill:#fff;
+-fx-font-family:"Microsoft Sans Serif";
+}
+.nav-btn:hover{
+        -fx-background-color:linear-gradient(to bottom right , #46589a,  #4278a7);
+        -fx-background-radius:5px;
+
+}
+.logout-btn{
+         -fx-background-color:#366d9d;
+        -fx-background-radius:10px;
+         -fx-cursor:hand;
+
+}
+.logout-btn:hover{
+    -fx-background-color:#396fc6;
+    -fx-background-radius:10px;
+}
+.image-card{
+    -fx-background-color:#fff;
+    -fx-border-color:#000;
+}
+.aj-btn{
+    background:linear-gradient(to bottom right , #344275,  #3a6389);
+        cursor:pointer;
+        border-color: transparent;
+        border-radius:10px;
+        font-size:15px;
+        color:#fff;
+font-family:"Microsoft Sans Serif";
+}
+.aj-btn:hover{
+        background:linear-gradient(to bottom right , #77b5fe,#312ce7);
+        border-radius:5px;
+        border-color: transparent;
+
+}
+.search{
+        -fx-background-color:transparent;
+    -fx-border-color:linear-gradient(to bottom right , #449d6b,  #633364);
+-fx-border-width:1px;
+-fx-border-radius:4px;
+-fx-padding:0px 0px 0px 28px;
+}
+.search:focused{
+    -fx-border-width:2px;
+}
+.table-view{
+    -fx-background-color:transparent;
+    -fx-padding:0px;
+    -fx-border-color:linear-gradient(to bottom right , #344275,  #3a6389);
+    -fx-border-width:2px;
+    -fx-border-radius:8px;
+
+    
+}
+.table-view.table-column{
+    -fx-alignment : CENTER;
+}
+.table-view.column-header-background{
+        -fx-background-color:linear-gradient(to bottom right , #449d6b,  #633364);
+    -fx-border-radius:8px 8px 0px 0px;
+    -fx-background-insets: 0 0 0 0;
+
+}
+.table-view.column-header, .filter{
+        -fx-background-color:transparent;
+-fx-size:40px;
+}
+.table-view .column-header .label{
+    -fx-text-fill:#fff;
+    -fx-font-family:"Arial";
+}
+.textfield{
+    -fx-background-color:linear-gradient(to bottom right , #efefef,  #eee);
+         -fx-border-radius:4px ;
+    -fx-border-color:linear-gradient(to bottom right , #449d6b,  #633364);
+    -fx-border-width:4px;
+    -fx-border-radius:1px;   
+     
+  
+}
+.textfield:focused{
+    -fx-background-color:#fff;
+    -fx-border-width:1.8px;
+}
+.nav{
+    background-color: #1F1F1F;
+}

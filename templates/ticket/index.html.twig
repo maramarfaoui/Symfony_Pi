@@ -1,0 +1,53 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Ticket index{% endblock %}
+
+{% block body %}
+    <h1>Ticket index</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>PrixTicket</th>
+                <th>NomEvent</th>
+                <th>TypeTicket</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.id }}</td>
+                <td>{{ ticket.PrixTicket }}</td>
+                <td>{{ ticket.NomEvent }}</td>
+                <td>{{ ticket.TypeTicket }}</td>
+                <td>
+                    <a class="nav-link" href="{{ path('app_ticket_show', {'id': ticket.id}) }}">
+                        <i class="fa fa-book fa-fw" aria-hidden="true"></i>
+                        <span>Afficher</span></a>
+
+                    <a class="nav-link" href="{{ path('app_ticket_edit', {'id': ticket.id}) }}">
+                        <i class="fa fa-cog fa-spin fa-1.75 fa-fw"></i>
+                        <span class="sr-only">Loading...</span>
+
+                        <span>Modifier</span></a>
+
+                    <a class="nav-link" href="{{ path('app_ticket_delete', {'id': ticket.id}) }}">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                        <span>Supprimer</span></a>
+
+
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ticket_new') }}"><button class="btn btn-info">Ajouter Un Nouveau Ticket</button></a>
+{% endblock %}

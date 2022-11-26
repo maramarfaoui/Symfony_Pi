@@ -1,0 +1,60 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Calendrier Des Evènements Index{% endblock %}
+
+{% block body %}
+    <h1>EventCalendar index</h1>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Description</th>
+            <th>Background_Color</th>
+            <th>Border_Color</th>
+            <th>Text_Color</th>
+            <th>Toute_La_Journée</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for event_calendar in event_calendars %}
+            <tr>
+                <td>{{ event_calendar.id }}</td>
+                <td>{{ event_calendar.title }}</td>
+                <td>{{ event_calendar.start ? event_calendar.start|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event_calendar.end ? event_calendar.end|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event_calendar.description }}</td>
+                <td>{{ event_calendar.backgroundColor }}</td>
+                <td>{{ event_calendar.borderColor }}</td>
+                <td>{{ event_calendar.TextColor }}</td>
+                <td>{{ event_calendar.JourneeEntiere ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a class="nav-link" href="{{ path('app_event_calendar_show', {'id': event_calendar.id}) }}">
+                        <i class="fa fa-book fa-fw" aria-hidden="true"></i>
+                        <span>Afficher</span></a>
+
+                    <a class="nav-link" href="{{ path('app_event_calendar_edit', {'id': event_calendar.id}) }}">
+                        <i class="fa fa-cog fa-spin fa-1.75 fa-fw"></i>
+                        <span class="sr-only">Loading...</span>
+
+                        <span>Modifier</span></a>
+
+                    <a class="nav-link" href="{{ path('app_event_calendar_delete', {'id': event_calendar.id}) }}">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                        <span>Supprimer</span></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_event_calendar_new') }}"><button class="btn btn-info">Ajouter Au Calendier</button></a>
+{% endblock %}

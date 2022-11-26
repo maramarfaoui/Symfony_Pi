@@ -1,0 +1,69 @@
+{% extends 'base-back.html.twig' %}
+
+
+
+{% block title %}Evenement index{% endblock %}
+
+{% block body %}
+    <h1>Evenement index</h1>
+
+    <table class="table table-bordered border-primary">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomEvent</th>
+                <th>AdresseEvent</th>
+                <th>CapaciteEvent</th>
+                <th>NbrTicketAchete</th>
+                <th>DateDebutEvent</th>
+                <th>DateFinEvent</th>
+                <th>TypeEvent</th>
+                <th>CategorieEvent</th>
+                <th>PrixEntre</th>
+                <th>Image Evènement</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+            <tr>
+                <td>{{ evenement.id }}</td>
+                <td>{{ evenement.NomEvent }}</td>
+                <td>{{ evenement.AdresseEvent }}</td>
+                <td>{{ evenement.CapaciteEvent }}</td>
+                <td>{{ evenement.nbrTicketAchete }}</td>
+                <td>{{ evenement.DateDebutEvent ? evenement.DateDebutEvent|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ evenement.DateFinEvent ? evenement.DateFinEvent|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ evenement.TypeEvent }}</td>
+                <td>{{ evenement.CategorieEvent }}</td>
+                <td>{{ evenement.PrixEntre }}</td>
+                <td>{{ evenement.image1 }}
+                   
+                </td>
+
+                <td>
+                    <a class="nav-link" href="{{ path('app_event_show_b', {'id': evenement.id}) }}">
+                        <i class="fa fa-book fa-fw" aria-hidden="true"></i>
+                        <span>Afficher</span></a>
+
+                    <a class="nav-link" href="{{ path('app_event_edit', {'id': evenement.id}) }}">
+                        <i class="fa fa-cog fa-spin fa-1.75 fa-fw"></i>
+                        <span class="sr-only">Loading...</span>
+
+                        <span>Modifier</span></a>
+
+                    <a class="nav-link" href="{{ path('app_event_delete', {'id': evenement.id}) }}">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                        <span>Supprimer</span></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_event_new') }}"><button class="btn btn-info">Ajouter Un Nouveau Evènement</button></a>
+{% endblock %}

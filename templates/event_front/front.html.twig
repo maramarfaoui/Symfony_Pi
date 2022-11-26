@@ -1,0 +1,23 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Evenements{% endblock %}
+
+{% block body %}
+    <div class="title-all text-center">
+        <h1 >Liste Des Evenements</h1>
+    </div>
+    <div class="categories-shop">
+        <div class="container">
+            <div class="row">
+                {% for evenement in evenements %}
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="shop-cat-box">
+                            <img class="img-fluid" src={{ asset('uploads/personnes/' ~ evenement.image1) }}>
+                            <a class="btn hvr-hover" href="{{ path('app_event_show', {'id': evenement.id}) }}">{{ evenement.NomEvent }}</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

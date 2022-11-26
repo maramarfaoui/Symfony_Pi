@@ -1,0 +1,21 @@
+{{ form_start(form , {'attr': {'novalidate':'novalidate'}}) }}
+
+<table class="table table-bordered">
+    <tr>
+        <td>{{ form_label(form.NomEvent,"Nom Evènement ") }}</td>
+        <td>{{ form_widget(form.NomEvent) }}</td>
+        <td>{{ form_errors(form.NomEvent) }}</td>
+    </tr>
+    <tr>
+        <td> {{ form_label(form.PrixTicket,"Prix de Ticket") }}</td>
+        <td>{{ form_widget(form.PrixTicket) }}</td>
+        <td>{{ form_errors(form.PrixTicket) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.Type_Ticket,"Type de Ticket") }}</td>
+        <td>{{ form_widget(form.Type_Ticket) }}</td>
+        <td>{{ form_errors(form.Type_Ticket) }}</td>
+    </tr>
+</table>
+<br><button class="btn btn-info">{{ button_label|default('Ajouter un Ticket') }}<br></button>
+{{ form_end(form) }}
