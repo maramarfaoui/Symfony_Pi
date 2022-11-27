@@ -175,7 +175,7 @@ class EventFrontController extends AbstractController
             $mail->isHTML(true);// Set email format to HTML
 
             $mail->Username = 'houssemeddine.mhedhbi@esprit.tn';// SMTP username
-            $mail->Password = 'L************';// SMTP password
+            $mail->Password = 'L**********';// SMTP password
 
             $mail->setFrom('houssemeddine.mhedhbi@esprit.tn', 'Admin Evènements');//Your application NAME and EMAIL
             $mail->Subject = 'Nouvelle Réservation De Ticket';//Message subject
