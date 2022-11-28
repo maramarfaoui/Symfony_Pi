@@ -7,7 +7,7 @@
 <table class="table table-bordered">
     <tr>
         <td>{{ form_label(form.title,"Nom Evènement ") }}</td>
-        <td>{{ form_widget(form.title) }}</td>
+        <td>{{ form_widget(form.title,{'attr':{'class':'form-control'}}) }}</td>
         <td>{{ form_errors(form.title) }}</td>
     </tr>
     <tr>
@@ -22,27 +22,27 @@
     </tr>
     <tr>
         <td>{{ form_label(form.description,"Description") }}</td>
-        <td>{{ form_widget(form.description) }}</td>
+        <td>{{ form_widget(form.description,{'attr':{'class':'form-control'}}) }}</td>
         <td>{{ form_errors(form.description) }}</td>
     </tr>
     <tr>
         <td>{{ form_label(form.backgroundColor,"Background Couleur") }}</td>
-        <td>{{ form_widget(form.backgroundColor) }}</td>
+        <td>{{ form_widget(form.backgroundColor,{'attr':{'class':'form-control'}}) }}</td>
         <td>{{ form_errors(form.backgroundColor) }}</td>
     </tr>
     <tr>
         <td>{{ form_label(form.borderColor,"Border Couleur") }}</td>
-        <td>{{ form_widget(form.borderColor) }}</td>
+        <td>{{ form_widget(form.borderColor,{'attr':{'class':'form-control'}}) }}</td>
         <td>{{ form_errors(form.borderColor) }}</td>
     </tr>
     <tr>
         <td>{{ form_label(form.textColor,"Couleur De Texte") }}</td>
-        <td>{{ form_widget(form.textColor) }}</td>
+        <td>{{ form_widget(form.textColor,{'attr':{'class':'form-control'}}) }}</td>
         <td>{{ form_errors(form.textColor) }}</td>
     </tr>
     <tr>
         <td>{{ form_label(form.journee_entiere,"Journée Entière ?") }}</td>
-        <td>{{ form_widget(form.journee_entiere) }}</td>
+        <td>{{ form_widget(form.journee_entiere,{'attr':{'class':'form-control'}}) }}</td>
         <td>{{ form_errors(form.journee_entiere) }}</td>
     </tr>
 </table>

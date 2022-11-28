@@ -86,18 +86,12 @@ class EventController extends AbstractController
     {
         $data = $req->get('searche');
         $repository = $entityManager->getRepository(Evenement::class);
-        $event3 = $repository->findBy(['id' => $data]);
-        $event1 = $repository->findBy(['NomEvent' => $data]);
-        $event2 = $repository->findBy(['AdresseEvent' => $data]);
-        $event = $repository->findBy(['CapaciteEvent' => $data]);
 
-
-
+        $event = $repository->findBy(['NomEvent' => $data]);
         return $this->render('event/index.html.twig', [
             'evenements' => $event,
-            'evenemens' =>$event3,
-            'evenemen' =>$event2,
-            'eveneme'=> $event1
+
+
         ]);
     }
 
