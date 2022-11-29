@@ -12,7 +12,7 @@ class Ticket
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(name:"IdTicket")]
     private ?int $id = null;
 
     #[ORM\Column(nullable: true)]

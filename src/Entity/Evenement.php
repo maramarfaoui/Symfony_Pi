@@ -12,10 +12,10 @@ class Evenement
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(name:"idEvent")]
     private ?int $id = null;
 
-    #[ORM\Column(length: 20, nullable: true)]
+    #[ORM\Column(length: 20, nullable: true,name:"NomEvent")]
     #[Assert\NotBlank(message: ('Ce Champ Doit Etre Rempli'))]
     #[Assert\Length(
         min: 4,
@@ -25,7 +25,7 @@ class Evenement
     )]
     private ?string $NomEvent = null;
 
-    #[ORM\Column(length: 20, nullable: true)]
+    #[ORM\Column(length: 20, nullable: true,name: "AdresseEvent")]
     #[Assert\NotBlank(message: ('Ce Champ Doit Etre Rempli'))]
     #[Assert\Length(
         min: 4,
@@ -36,39 +36,39 @@ class Evenement
     private ?string $AdresseEvent = null;
 
 
-    #[ORM\Column(length: 20, nullable: true)]
+    #[ORM\Column(length: 20, nullable: true,name:"CapaciteEvent")]
     #[Assert\NotBlank(message: ('Ce Champ Doit Etre Rempli'))]
     #[Assert\Positive(message: ('La Capacité Evènements Doit Un Nombre Positif'))]
 
     private ?int $CapaciteEvent = null;
 
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(nullable: true,name:"nbrTicketAchete")]
     #[Assert\NotBlank(message: ('Ce Champ Doit Etre Rempli'))]
     #[Assert\PositiveOrZero(message: ('Le Nombre De Tickets Achetés Doit Etre 0 ou Un Nombre Positif'))]
     private ?int $nbrTicketAchete = null;
 
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true , name: 'DateDebutEvent')]
     private ?\DateTimeInterface $DateDebutEvent = null;
 
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true, name: 'DateFinEvent')]
 
     private ?\DateTimeInterface $DateFinEvent = null;
 
-    #[ORM\Column(length: 20, nullable: true)]
+    #[ORM\Column(length: 20, nullable: true , name: 'TypeEvent')]
     private ?string $TypeEvent = null;
 
-    #[ORM\Column(length: 20, nullable: true)]
+    #[ORM\Column(length: 20, nullable: true , name: 'CategorieEvent')]
     private ?string $CategorieEvent = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(nullable: true , name: 'PrixEntre')]
     #[Assert\NotBlank(message: ('Ce Champ Doit Etre Rempli'))]
     #[Assert\Positive(message: ('Le Prix Entrée Doit Un Nombre Positif'))]
     private ?float $PrixEntre = null;
 
-    #[ORM\Column(length: 500, nullable: true)]
+    #[ORM\Column(length: 500, nullable: true , name: 'image1')]
 
     private ?string $image1 = null;
 
