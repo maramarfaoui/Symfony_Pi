@@ -1,0 +1,51 @@
+{% extends 'base_back.html.twig' %}
+
+{% block title %}Commandpm index{% endblock %}
+
+{% block body %}
+    <h1>liste de commande </h1>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<div class="container">
+
+    <table class="table" id="prodCM" >
+        <thead>
+            <tr>
+                <th>Idcpm</th>
+                <th>Idprod</th>
+                <th>Nomprod</th>
+                <th>Referencecm</th>
+                <th>Date</th>
+                <th>Quantitecpm</th>
+                <th>Iduser</th>
+                <th>Type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commandpm in commandpms %}
+            <tr>
+                <td>{{ commandpm.idcpm }}</td>
+                <td>{{ commandpm.idprod }}</td>
+                <td>{{ commandpm.nomprod }}</td>
+                <td>{{ commandpm.referencecm }}</td>
+                <td>{{ commandpm.date ? commandpm.date|date('Y-m-d') : '' }}</td>
+                <td>{{ commandpm.quantitecpm }}</td>
+                <td>{{ commandpm.iduser }}</td>
+                <td>{{ commandpm.type }}</td>
+                <td>
+                    <a href="{{ path('app_commandpm_show', {'idcpm': commandpm.idcpm}) }}">show</a>
+                    <a href="{{ path('app_commandpm_edit', {'idcpm': commandpm.idcpm}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('add') }}">Create new</a>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends '../baseMaram.html.twig' %}
+
+{% block title %}Edit Commandpm{% endblock %}
+
+{% block body %}
+    <h1>Edit Commandpm</h1>
+
+    {{ include('commandpm/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_commandpm_index') }}">back to list</a>
+
+    {{ include('commandpm/_delete_form.html.twig') }}
+{% endblock %}

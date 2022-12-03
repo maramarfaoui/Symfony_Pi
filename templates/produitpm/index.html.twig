@@ -1,0 +1,43 @@
+{% extends 'base_back.html.twig' %}
+
+{% block title %}Les Des Produit {% endblock %}
+
+{% block body %}
+    <h1>Liste Des Produit</h1>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<div class="container">
+    <table class="table table-dark" id="prodpm">
+        <thead>
+            <tr>
+                <th>Id Du produit </th>
+                <th>Nom du Produit </th>
+                <th>Reference</th>
+                <th>Quantite</th>
+                <th>Type</th>
+                <th>Prix</th>
+                <th>Date d'Ajout </th>
+                <th>actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for produitpm in produitpms %}
+            <tr>
+                <td>{{ produitpm.idprod }}</td>
+                <td>{{ produitpm.nomprod }}</td>
+                <td>{{ produitpm.referencep }}</td>
+                <td>{{ produitpm.quantitep }}</td>
+                <td>{{ produitpm.typep }}</td>
+                <td>{{ produitpm.prixpm }}</td>
+                <td>{{ produitpm.dateajoutpm }}</td>
+                <td> <a  class="nav-item" href="/produitpm/add"> Ajouter  </a> <a href="/produitpm/update/{{produitpm.idprod}}"> modifier  </a> <a href="/produitpm/delete/{{produitpm.idprod}}"> supprimer  </a></td>
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
