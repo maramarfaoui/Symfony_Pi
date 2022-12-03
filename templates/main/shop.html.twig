@@ -202,41 +202,12 @@
     <!-- End Top Search -->
 
     <!-- Start Slider -->
-    <div class="row">
-        {% if produits|length %}
-            {% for produit in produits %}
-                <div class="col-md-4">
-                     <div class="card" style="width: 18rem;height: 100%">
-                         {% if produit.imagem1 %}
-                             <img src="{{ asset('uploads/' ~produit.imagem1) }}" alt="produit.name"
 
-                                  class ="card-img-top">
-                         {% endif %}
-                         <div classs="card-body">
-                             <h5 class="card-title">{{produit.Nomprod }}</h5>
-                             <h5><span class="text text-danger">{{produit.Prixprod }}DT</span></h5>
-                             <h5><span class="text text-danger">{{produit.Localisationprod }}</span></h5>
-                             <h5><span class="text text-danger">{{produit.Typeprod }}</span></h5>
-                             <h5><span class="text text-danger">{{produit.Typestatue }}</span></h5>
-                             <a href="{{ path('produit_show',{id: produit.Idprod}) }}" class="btn btn-sm btn-primary">
-                                 View
-                             </a>
-                         </div>
-                     </div>
-                     </div>
-            {% endfor %}
-            {% else %}
-                <div class="alert alert-info">
-                    Pas de Produits !!!
-                </div>
-
-        {% endif %}
-    </div>
 
     <!-- End Slider -->
 
     <!-- Start Categories  -->
-    <div class="categories-shop">
+ {# #}   <div class="categories-shop">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -286,7 +257,62 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
 
+                {% for produit in produits %}
+                    {% set d="/portfolioDetails/"~produit.idprod %}
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;height: 100%">
+                            {% if produit.imagem1 %}
+
+                                <img src="{{ asset('uploads/' ~produit.imagem1) }}" alt="produit.name"
+
+                                     class ="card-img-top">
+                            {% endif %}
+                            <div classs="card-body">
+                                <h5 class="card-title">{{produit.Nomprod }}</h5>
+                                <h5><span class="text text-danger">{{produit.Prixprod }}DT</span></h5>
+                                <h5><span class="text text-danger">{{produit.Localisationprod }}</span></h5>
+                                <h5><span class="text text-danger">{{produit.Typeprod }}</span></h5>
+                                <h5><span class="text text-danger">{{produit.Typestatue }}</span></h5>
+                                <a class="btn btn-success" href="{{ absolute_url(d) }}">Detail</a>
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% if isPaginated %}
+             <div class="row mt-2">
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        {% if page != 1 %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ path('display_produit.pagination',{page :page - 1 ,nbre:nbre})}}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% for i in range(1, nbrePage)  %}
+                        <li class="page-item"><a class="page-link" href="{{ path('display_produit.pagination',{page :i ,nbre:nbre})}}">{{ i }}</a></li>
+                        {% endfor %}
+                        {% if page != nbrePage %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ path('display_produit.pagination',{page :page +1 ,nbre:nbre})}}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+
+             </div>
+                {% endif %}
+
+            </div>
             <div class="row special-list">
                 <div class="col-lg-3 col-md-6 special-grid best-seller">
                     <div class="products-single fix">
@@ -381,6 +407,7 @@
                 </div>
             </div>
         </div>
+
     </div>
     <!-- End Products  -->
     {# <div class="row" style="display: flex;align-items: center;margin-top: 20px;">
@@ -431,76 +458,7 @@
 
 
     </div> #}
-    <!-- Start Blog  -->
-    <div class="latest-blog">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title-all text-center">
-                        <h1>latest blog</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-4 col-xl-4">
-                    <div class="blog-box">
-                        <div class="blog-img">
-                            <img class="img-fluid" src="{{ asset('client/images/tab5.jpg')}}" alt="" />
-                        </div>
-                        <div class="blog-content">
-                            <div class="title-blog">
-                                <h3>Fusce in augue non nisi fringilla</h3>
-                                <p>Nulla ut urna egestas, porta libero id, suscipit orci. Quisque in lectus sit amet urna dignissim feugiat. Mauris molestie egestas pharetra. Ut finibus cursus nunc sed mollis. Praesent laoreet lacinia elit id lobortis.</p>
-                            </div>
-                            <ul class="option-blog">
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-comments"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-4">
-                    <div class="blog-box">
-                        <div class="blog-img">
-                            <img class="img-fluid" src="{{ asset('client/images/tab6.jpg')}}" alt="" />
-                        </div>
-                        <div class="blog-content">
-                            <div class="title-blog">
-                                <h3>Fusce in augue non nisi fringilla</h3>
-                                <p>Nulla ut urna egestas, porta libero id, suscipit orci. Quisque in lectus sit amet urna dignissim feugiat. Mauris molestie egestas pharetra. Ut finibus cursus nunc sed mollis. Praesent laoreet lacinia elit id lobortis.</p>
-                            </div>
-                            <ul class="option-blog">
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-comments"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-4">
-                    <div class="blog-box">
-                        <div class="blog-img">
-                            <img class="img-fluid" src="{{ asset('client/images/tab7.jpg')}}" alt="" />
-                        </div>
-                        <div class="blog-content">
-                            <div class="title-blog">
-                                <h3>Fusce in augue non nisi fringilla</h3>
-                                <p>Nulla ut urna egestas, porta libero id, suscipit orci. Quisque in lectus sit amet urna dignissim feugiat. Mauris molestie egestas pharetra. Ut finibus cursus nunc sed mollis. Praesent laoreet lacinia elit id lobortis.</p>
-                            </div>
-                            <ul class="option-blog">
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-comments"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Blog  -->
+
 
 
     <!-- Start Instagram Feed  -->

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -66,6 +68,16 @@ class Produit
      * @ORM\Column(name="imagem1", type="string", length=500, nullable=false)
      */
     private $imagem1;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Like::class, mappedBy="produit")
+     */
+    private $rating;
+
+    public function __construct()
+    {
+        $this->rating = new ArrayCollection();
+    }
 
     public function getIdprod(): ?int
     {
@@ -140,6 +152,36 @@ class Produit
     public function setImagem1(string $imagem1): self
     {
         $this->imagem1 = $imagem1;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Like>
+     */
+    public function getRating(): Collection
+    {
+        return $this->rating;
+    }
+
+    public function addRating(Like $rating): self
+    {
+        if (!$this->rating->contains($rating)) {
+            $this->rating[] = $rating;
+            $rating->setProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRating(Like $rating): self
+    {
+        if ($this->rating->removeElement($rating)) {
+            // set the owning side to null (unless already changed)
+            if ($rating->getProduit() === $this) {
+                $rating->setProduit(null);
+            }
+        }
 
         return $this;
     }

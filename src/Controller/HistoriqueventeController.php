@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 #[Route('/historiquevente')]
 class HistoriqueventeController extends AbstractController
 {
@@ -24,6 +25,7 @@ class HistoriqueventeController extends AbstractController
             'historiqueventes' => $historiqueventes,
         ]);
     }
+
 
     #[Route('/new', name: 'app_historiquevente_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response

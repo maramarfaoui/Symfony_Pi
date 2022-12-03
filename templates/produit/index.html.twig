@@ -48,6 +48,9 @@
                                     <form id="{{ produit.Idprod }}" action="{{ path('supp_prod',{'id':produit.idprod}) }}"method="POST"></form>
                                     <button onclick="deleteItem('{{ produit.Idprod }}')" class="btn btn-danger">Supprimer</button>
                                 </td>
+                                <td>
+                                    <a class="btn btn-success" href="{{ path('display_produit_list',{'id':produit.idprod}) }}">Imprimer</a>
+                                </td>
                             </tr>
 
                         {% endfor %}

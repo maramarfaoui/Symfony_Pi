@@ -1,0 +1,56 @@
+
+
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+    <div class="container" data-aos="fade-up">
+
+
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <ul id="portfolio-flters">
+
+                    <li data-filter="*" class="filter-active">All</li>
+                    {% for produit in list %}
+                        {% set a="uploads/"~produit.imagem1 %}
+                        {% set b=produit.nomprod %}
+                        {% set c=produit.localisationprod %}
+                        {% set f=produit.typeprod %}
+                        {% set d="portfolioDetails/"~produit.idprod %}
+                        {% set y="col-lg-4 col-md-6 portfolio-item filter-"~produit.typestatue %}
+                        <li data-filter={{ x }}>{{ f }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        {% for produit in list %}
+        {% set a="uploads/"~produit.imagem1 %}
+        {% set b=produit.nomprod %}
+        {% set c=produit.localisationprod %}
+        {% set f=produit.typeprod %}
+        {% set d="portfolioDetails/"~produit.idprod %}
+        {% set y="col-lg-4 col-md-6 portfolio-item filter-"~produit.typestatue %}
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-{{ f }}">
+                <div class="portfolio-wrap">
+                    <img src={{ asset(a)}} class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>{{ b }}</h4>
+                        <p>{{ c }}</p>
+                        <div class="portfolio-links">
+                            <a href="{{ asset(a) }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ b }}"><i class="bx bx-plus"></i></a>
+                            <a href="{{ d   }}" title="More Details"><i class="bx bx-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+</section><!-- End Portfolio Section -->
