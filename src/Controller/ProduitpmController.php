@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\service\QrcodeService;
+use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -26,40 +28,49 @@ use PHPMailer\PHPMailer\SMTP;
 class ProduitpmController extends AbstractController
 {
     /**
+     * @param Request $request
+     * @param QrcodeService $qrcodeService
+     * @return Response
      * @Route("/afficher ", name="app_produitpm_index", methods={"GET"})
      */
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(EntityManagerInterface $entityManager, Request $request, QrcodeService $qrcodeService): Response
     {
+
         $produitpms = $entityManager
             ->getRepository(Produitpm::class)
             ->findAll();
 
         return $this->render('produitpm/index.html.twig', [
-            'produitpms' => $produitpms,
-        ]);
+            'produitpms' => $produitpms]);
+
     }
 
 
     /**
      * @param Request $request
+     * @param QrcodeService $qrcodeService
      * @return Response
      * @Route ("/add",name="add" ,methods={"POST","GET"})
      */
-    public function add(Request $request, EntityManagerInterface $entityManager, MailerInterface $mailer)
+    public function add(Request $request, QrcodeService $qrcodeService, EntityManagerInterface $entityManager, MailerInterface $mailer)
     {
+        $qrCode=null;
 
 
         if ($request->request->get('Nomprod') != '') {
             $repository = $entityManager->getRepository(Produitpm::class);
             $Produitpm = $repository->findBy(['nomprod' => $request->request->get('Nomprod')]);
             if (count($Produitpm) == 0) {
+                $qrCode = $qrcodeService->qrcode($request->request->get('Nomprod'));
                 $prd = new Produitpm();
                 $prd->setNomprod($request->request->get('Nomprod'));
                 $prd->setReferencep($request->request->get('Referencep'));
                 $prd->setQuantitep($request->request->get('Quantitep'));
                 $prd->setTypep($request->request->get('Type'));
                 $prd->setPrixpm($request->request->get('Prixpm'));
+                $prd->setQrcode($qrCode);
                 $prd->setDateajoutpm($request->request->get('Dateajoutpm'));
+
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($prd);
                 $em->flush();
@@ -85,9 +96,11 @@ class ProduitpmController extends AbstractController
                 $mail->Body = '
 <h1>le produit: ' . $request->request->get('Nomprod') . ' ajouteé avec succes </h1>
 ';
-                $mail->AltBody = 'Plain text message body for non-HTML email client. Gmail SMTP email body.';
+
 
                 $mail->send();
+
+
                 return $this->redirectToRoute('app_produitpm_index');
             } else {
                 return $this->
@@ -136,8 +149,10 @@ class ProduitpmController extends AbstractController
     public function recherche(Request $req, EntityManagerInterface $entityManager)
     {
         $data = $req->get('searche');
+
         $repository = $entityManager->getRepository(Produitpm::class);
         $Produitpm = $repository->findBy(['nomprod' => $data]);
+
 
         return $this->render('produitpm/index.html.twig', [
             'produitpms' => $Produitpm
@@ -154,31 +169,19 @@ class ProduitpmController extends AbstractController
     {
         $repository = $entityManager->getRepository(Produitpm::class);
         $Produitpm = $repository->findOneBy(['idprod' => $id]);
-        return $this->render('produitpm/edit.html.twig', [
-            'produitpm' => $Produitpm
-        ]);
+            return $this->render('produitpm/edit.html.twig', [
+                'produitpm' => $Produitpm
+            ]);
 
 
-        /*
-        $repo = $this->getDoctrine()->getRepository(Produitpm::class);
-        $classroom = $repo->find($id);
-        $form = $this->createForm(ProduitpmType::class, $classroom);
-        $form->add('Update', SubmitType::class);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->flush();
-            return $this->redirectToRoute('afficheclasse');
-        }
-        return $this->render('produitpm/new.html.twig', ['form' => $form->createView()]);*/
     }
 
-
-    /**
-     * @param $id
-     * @Route ("/delete/{idprod}",name="delete")
-     */
-    public function delete($idprod)
+    /*
+        /**
+         * @param $id
+         * @Route ("",name="desslete",methods="POST")
+         *//*
+    public function deslete($idprod)
     {
         $repo = $this->getDoctrine()->getRepository(Produitpm::class);
         $classroom = $repo->find($idprod);
@@ -187,7 +190,7 @@ class ProduitpmController extends AbstractController
         $em->flush();
         return $this->redirectToRoute('app_produitpm_index');
     }
-
+*/
     /**
      *
      * @Route ("/editprod",name="editprod")
@@ -200,32 +203,28 @@ class ProduitpmController extends AbstractController
         $Produitpm->setNomprod($req->get('Nomprod'));
         $Produitpm->setReferencep($req->get('Referencep'));
         $Produitpm->setQuantitep($req->get('Quantitep'));
-        $Produitpm->setType($req->get('Type'));
+        $Produitpm->setTypep($req->get('Type'));
         $Produitpm->setPrixpm($req->get('Prixpm'));
         $Produitpm->setDateajoutpm($req->get('Dateajoutpm'));
         $entityManager->flush();
         return $this->redirectToRoute('app_produitpm_index');
 
     }
-    /*
-        /**
-         * @route('/email')
-         *//*
-    public function sendEmail(MailerInterface $mailer): void
+
+    /**
+     * @Route ("/removeproduit/{id}",name="supp_prod",methods={"GET","POST"})
+     */
+    public function delete(Produitpm $produit): Response
     {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($produit);
+        $em->flush();
+        $this->addFlash('Success', 'Oeuvre Supprimé');
 
-        $email = (new Email())
-            ->from('abdelmalek.baccar@esprit.tn')
-            ->to('abdelmalek.baccar@esprit.tn')
-            //->cc('cc@example.com')
-            //->bcc('bcc@example.com')
-            //->replyTo('fabien@example.com')
-            //->priority(Email::PRIORITY_HIGH)
-            ->subject('Time for Symfony Mailer!')
-            ->text('Sending emails is fun again!')
-            ->html('<p> See Twig integration for better HTML integration! </p>');
+        return $this->redirectToRoute('app_produitpm_index');
 
-       $mailer->send($email);
-    }*/
+
+    }
+
 
 }

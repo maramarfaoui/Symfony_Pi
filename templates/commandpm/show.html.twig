@@ -1,50 +1,54 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_back.html.twig' %}
 
-{% block title %}Commandpm{% endblock %}
+{% block title %}Command {{ commandpm.nomprod }}{% endblock %}
 
 {% block body %}
     <h1>Commandpm</h1>
 
-    <table class="table">
+    <table class="table border">
         <tbody>
-            <tr>
-                <th>Idcpm</th>
-                <td>{{ commandpm.idcpm }}</td>
-            </tr>
-            <tr>
-                <th>Idprod</th>
-                <td>{{ commandpm.idprod }}</td>
-            </tr>
-            <tr>
-                <th>Nomprod</th>
-                <td>{{ commandpm.nomprod }}</td>
-            </tr>
-            <tr>
-                <th>Referencecm</th>
-                <td>{{ commandpm.referencecm }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ commandpm.date ? commandpm.date|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Quantitecpm</th>
-                <td>{{ commandpm.quantitecpm }}</td>
-            </tr>
-            <tr>
-                <th>Iduser</th>
-                <td>{{ commandpm.iduser }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ commandpm.type }}</td>
-            </tr>
+        <tr>
+            <th>Idcpm</th>
+            <td>{{ commandpm.idcpm }}</td>
+        </tr>
+        <tr>
+            <th>Idprod</th>
+            <td>{{ commandpm.idprod }}</td>
+        </tr>
+        <tr>
+            <th>Nomprod</th>
+            <td>{{ commandpm.nomprod }}</td>
+        </tr>
+        <tr>
+            <th>Referencecm</th>
+            <td>{{ commandpm.referencecm }}</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td>{{ commandpm.date ? commandpm.date|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Quantitecpm</th>
+            <td>{{ commandpm.quantitecpm }}</td>
+        </tr>
+        <tr>
+            <th>Iduser</th>
+            <td>{{ commandpm.iduser }}</td>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <td>{{ commandpm.type }}</td>
+        </tr>
         </tbody>
     </table>
+    <div class="row">
 
-    <a href="{{ path('app_commandpm_index') }}">back to list</a>
+            <a class="btn btn-primary" href="{{ path('app_commandpm_index') }}">back to list</a> <a
+                    class="btn btn-primary"
+                    href="{{ path('app_commandpm_edit', {'idcpm': commandpm.idcpm}) }}">edit</a> {{ include('commandpm/_delete_form.html.twig') }}
+        </div>
+    </div>
 
-    <a href="{{ path('app_commandpm_edit', {'idcpm': commandpm.idcpm}) }}">edit</a>
 
-    {{ include('commandpm/_delete_form.html.twig') }}
+
 {% endblock %}

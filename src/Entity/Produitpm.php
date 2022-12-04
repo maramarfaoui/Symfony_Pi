@@ -3,14 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\ProduitpmRepository;
-use Symfony\Component\Validator\Constraint as Assert;
 
 /**
  * Produitpm
  *
  * @ORM\Table(name="produitpm")
- * @ORM\Entity(repositoryClass=App\Repository\ProduitpmRepository::class)
+ * @ORM\Entity
  */
 class Produitpm
 {
@@ -25,14 +23,14 @@ class Produitpm
 
     /**
      * @var string
-
+     *
      * @ORM\Column(name="NomProd", type="string", length=255, nullable=false)
      */
     private $nomprod;
 
     /**
      * @var int
-
+     *
      * @ORM\Column(name="referenceP", type="integer", nullable=false)
      */
     private $referencep;
@@ -45,7 +43,7 @@ class Produitpm
     private $quantitep;
 
     /**
-     * @var string
+     * @var string|null
      *
      * @ORM\Column(name="typep", type="string", length=255, nullable=true)
      */
@@ -57,6 +55,13 @@ class Produitpm
      * @ORM\Column(name="prixPM", type="integer", nullable=false)
      */
     private $prixpm;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="QRcode", type="string", length=255, nullable=false)
+     */
+    private $qrcode;
 
     /**
      * @var string
@@ -106,14 +111,14 @@ class Produitpm
         return $this;
     }
 
-    public function getType(): ?string
+    public function getTypep(): ?string
     {
-        return $this->type;
+        return $this->typep;
     }
 
-    public function setType(string $type): self
+    public function setTypep(?string $typep): self
     {
-        $this->type = $type;
+        $this->typep = $typep;
 
         return $this;
     }
@@ -130,6 +135,18 @@ class Produitpm
         return $this;
     }
 
+    public function getQrcode(): ?string
+    {
+        return $this->qrcode;
+    }
+
+    public function setQrcode(string $qrcode): self
+    {
+        $this->qrcode = $qrcode;
+
+        return $this;
+    }
+
     public function getDateajoutpm(): ?string
     {
         return $this->dateajoutpm;
@@ -138,18 +155,6 @@ class Produitpm
     public function setDateajoutpm(string $dateajoutpm): self
     {
         $this->dateajoutpm = $dateajoutpm;
-
-        return $this;
-    }
-
-    public function getTypep(): ?string
-    {
-        return $this->typep;
-    }
-
-    public function setTypep(?string $typep): self
-    {
-        $this->typep = $typep;
 
         return $this;
     }
