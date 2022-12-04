@@ -3,13 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\CommandpmRepository;
 
 /**
  * Commandpm
  *
  * @ORM\Table(name="commandpm")
- * @ORM\Entity(repositoryClass=CommandpmRepository::class)
+ * @ORM\Entity
  */
 class Commandpm
 {
@@ -44,9 +43,9 @@ class Commandpm
     private $referencecm;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="date", type="string", nullable=false)
+     * @ORM\Column(name="date", type="string", length=255, nullable=false)
      */
     private $date;
 

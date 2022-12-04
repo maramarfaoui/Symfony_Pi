@@ -5,10 +5,12 @@
     <div class="col-sm-6">
 
         {% if message is defined %}
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-danger" id="alert" role="alert">
+                <i class="fas fa-laugh-wink"></i>
                 {{ message }}
             </div>
         {% endif %}
+
 
         <h1>Ajouter Un Nouveau Produit</h1>
         <form action="/produitpm/add" method="post">
@@ -39,10 +41,11 @@
                 <label for="exampleFormControlInput1">Date d'Ajout</label>
                 <input type="text" name="Dateajoutpm" {% if Dateajoutpm is defined %} value="{{ Dateajoutpm }}" {% endif %}class="datepicker form-control" placeholder="Date d'ajout">
             </div>
-            <button type="submit" class="btn btn-info"> Save</button>
+            <button type="submit"   class="btn btn-primary"> Save</button> <a    class="btn btn-primary" href="{{ path('app_produitpm_index') }}"><i class="fas fa-fw fa-table"></i>back to list</a>
 
         </form>
-        <a href="{{ path('app_produitpm_index') }}">back to list</a>
+
+
     </div>
 
 </div>

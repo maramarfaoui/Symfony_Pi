@@ -3,14 +3,21 @@
 {% block title %}Commandpm index{% endblock %}
 
 {% block body %}
+    {% if messagess is defined %}
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Well done! le produit et ajouter avec succes</h4>
+
+            {{ messagess }}
+        </div>
+    {% endif %}
     <h1>liste de commande </h1>
 <meta charset='utf-8'>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <div class="container">
 
-    <table class="table" id="prodCM" >
+    <table class="table table-bordered" id="prodCMa" >
         <thead>
-            <tr>
+            <tr class="table-primary" >
                 <th>Idcpm</th>
                 <th>Idprod</th>
                 <th>Nomprod</th>
@@ -34,7 +41,7 @@
                 <td>{{ commandpm.iduser }}</td>
                 <td>{{ commandpm.type }}</td>
                 <td>
-                    <a href="{{ path('app_commandpm_show', {'idcpm': commandpm.idcpm}) }}">show</a>
+                    <a class="btn btn-primary" href="{{ path('app_commandpm_show', {'idcpm': commandpm.idcpm}) }}">show</a>
                     <a href="{{ path('app_commandpm_edit', {'idcpm': commandpm.idcpm}) }}">edit</a>
                 </td>
             </tr>

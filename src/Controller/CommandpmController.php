@@ -28,10 +28,18 @@ class CommandpmController extends AbstractController
         $commandpms = $entityManager
             ->getRepository(Commandpm::class)
             ->findAll();
+        if (isset($_GET['messagess'])) {
+            return $this->render('commandpm/index.html.twig', [
+                'commandpms' => $commandpms,
+                'messagess' => $_GET['messagess']
+            ]);
+        } else {
+            return $this->render('commandpm/index.html.twig', [
+                'commandpms' => $commandpms,
 
-        return $this->render('commandpm/index.html.twig', [
-            'commandpms' => $commandpms,
-        ]);
+            ]);
+        }
+
     }
 
 
@@ -48,24 +56,23 @@ class CommandpmController extends AbstractController
         if ($request->request->get('Nomprod') != '') {
 
 
-
             $prdn = $request->request->get('Nomprod');
             $repository = $entityManager->getRepository(Produitpm::class);
             $Produitpm = $repository->findOneBy(['nomprod' => $prdn]);
+            $time = strtotime($request->request->get('date'));
 
+            $newformat = date('Y-m-d',$time);
             $qte1 = $Produitpm->getQuantitep();
-            if ($qte1> $request->request->get('quantiteCpm')){
+            if ($qte1 > $request->request->get('quantiteCpm')) {
 
                 $prd = new Commandpm();
                 $prd->setIdprod($request->request->get('IDProd'));
                 $prd->setNomprod($request->request->get('Nomprod'));
                 $prd->setReferencecm($request->request->get('referenceCM'));
-                $prd->setDate($request->request->get('date'));
+                $prd->setDate($newformat);
                 $prd->setQuantitecpm($request->request->get('quantiteCpm'));
                 $prd->setIduser($request->request->get('iduser'));
                 $prd->setType($request->request->get('type'));
-
-
 
 
                 $repository = $entityManager->getRepository(Produitpm::class);
@@ -74,7 +81,7 @@ class CommandpmController extends AbstractController
                 $qte2 = $qte1 - $request->request->get('quantiteCpm');
                 $Produitpm->setQuantitep($qte2);
                 $entityManager->flush();
-                if ($qte2<10){
+                if ($qte2 < 10) {
                     $mail = new PHPMailer(true);
                     $mail->SMTPDebug = SMTP::DEBUG_SERVER; // for detailed debug output
                     $mail->isSMTP();
@@ -96,24 +103,28 @@ class CommandpmController extends AbstractController
                     $mail->Body = '
 <h1>le produit: ' . $request->request->get('Nomprod') . ' est en alerte de stock </h1>
 ';
-                    $mail->AltBody = 'Plain text message body for non-HTML email client. Gmail SMTP email body.';
+
 
                     $mail->send();
                 }
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($prd);
                 $em->flush();
-                return $this->redirectToRoute('app_commandpm_index');
-            }else{
+                return $this->redirectToRoute('app_commandpm_index', [
+                    'messagess' => $request->request->get('referenceCM'),
+                ]);
+            } else {
+                $repository = $entityManager->getRepository(Produitpm::class);
+                $Prod = $repository->findAll('nomprod');
                 return $this->
                 render('commandpm/new.html.twig', array(
-                    'message'=> 'la quantite non disponible'
+                    'message' => 'la quantite non disponible', 'pdts' => $Prod
                 ));
             }
         }
         $repository = $entityManager->getRepository(Produitpm::class);
-        $Prod= $repository->findAll('nomprod');
-        return $this->render('commandpm/new.html.twig',['pdts'=>$Prod]);
+        $Prod = $repository->findAll('nomprod');
+        return $this->render('commandpm/new.html.twig', ['pdts' => $Prod]);
     }
 
     /**
